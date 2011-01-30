@@ -1,5 +1,5 @@
-body { background-color: #fff; color: #333; }
-
+/*body { background-color: #fff; color: #333; }
+*/
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
@@ -31,7 +31,7 @@ div.field, div.actions {
 }
 
 #error_explanation {
-  width: 450px;
+/*  width: 450px;*/
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;

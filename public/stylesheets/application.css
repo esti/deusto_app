@@ -1,0 +1,41 @@
+body {
+  margin: 2em;
+  padding: 1em;
+  background-color: #E6F1F6;
+}
+
+div.body {
+  border: solid 1px #29AEE6;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 1em;
+}
+
+div#flash_notice, div#flash_error {
+  padding: 10px;
+  margin: 10px 10%;
+  font-size: 14px;
+  color: #fff;
+  width: 80%;
+  clear: both;
+}
+
+div#flash_notice {
+  background-color: #E6F1F6;
+  border: solid 1px #29AEE6;
+  color: #29AEE6;
+}
+
+div#flash_error, div#flash_alert {
+  color: #c90204;
+  border: solid 1px #c90204;
+  background-color: #ffbabb;
+}
+
+div.main_content {
+  margin: 2em;
+}
+
+div#user_nav {
+  float:right;
+}

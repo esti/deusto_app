@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  email: MyString
-  password: MyString
+homer:
+  name: Homer Simpson
+  email: homer@simpsons.com
+  password: nuclear
 
-two:
-  name: MyString
-  email: MyString
-  password: MyString
+marge:
+  name: Marge Simpson
+  email: marge@simpsons.com
+  password: desperate

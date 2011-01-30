@@ -1,6 +1,13 @@
 DeustoApp::Application.routes.draw do
-  resources :users
 
+  resources :users, :only => [:new, :create]
+  resources :sessions, :only => [:new, :create, :destroy] 
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  root :to => "users#new"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
