@@ -24,10 +24,18 @@ class TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.new(params[:tweet])
 
-    if @tweet.save
-      redirect_to(tweets_path, :notice => 'Tweet was successfully created.') 
-    else
-      render :action => "new"
+    respond_to do |format|
+      if @tweet.save
+        format.html {redirect_to(tweets_path, :notice => 'Tweet was successfully created.') }
+        format.js
+      else
+        format.html {render :action => "new"}
+        format.js do
+          render :update do |page|
+            page.alert "Your tweet could not be saved. #{@tweet.errors.full_messages}. Please try again"
+          end
+        end
+      end
     end
   end
 

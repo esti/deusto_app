@@ -1,0 +1,4 @@
+Element.insert("timeline", 
+  { top: '<%= escape_javascript(render("tweet", :tweet => @tweet)) %>'});
+new Effect.Highlight($("tweet_<%= @tweet.id %>"));
+$('new_tweet').reset();
