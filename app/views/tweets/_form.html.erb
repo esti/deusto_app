@@ -1,0 +1,13 @@
+
+<%= form_for(@tweet) do |f| %>
+  
+  <%= render "/shared/error_messages", :target => @tweet %>
+  
+  <div class="field">
+    <h3><%= f.label :content, "What is happening?" %></h3>
+    <%= f.text_area :content, :size => "55x2" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Tweet!" %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>Your timeline</h1>
+
+<%= render "/tweets/form" %>
+
+<% @tweets.each_with_index do |tweet, i| %>
+<div class="tweet <%= odd_or_even(i) %>">
+    <p class="content"><%= tweet.content %></p>
+    <div class="user_and_moment">
+      <span class="user">
+        by <%= tweet.user.name %>
+      </span>
+      <span class="moment">
+        <%= distance_of_time_in_words(tweet.created_at, Time.now) %> ago
+      </span>
+    </div>
+</div>
+<% end %>

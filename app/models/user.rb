@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   
+  has_many :tweets
+    
   validates :name, :presence => true
 
   validates :password,

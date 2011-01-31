@@ -39,3 +39,22 @@ div.main_content {
 div#user_nav {
   float:right;
 }
+
+/* Tweets */
+div.tweet {
+  border-bottom: solid 1px #DDD;
+  padding:0.5em;
+  margin:0px;
+}
+
+div.tweet p {
+  margin: 0px;
+}
+
+.even {
+  background-color: #E6F1F6;
+}
+
+div.user_and_moment {
+  text-align:right;
+}
