@@ -11,7 +11,17 @@ class ApplicationController < ActionController::Base
   
   def login_required
     unless current_user
-      redirect_to login_path, :notice => "You need to be logged in in order to tweet"
+      notice = "You need to be logged in in order to tweet"
+      respond_to do |format|
+        format.html do
+          redirect_to login_path, :notice => notice
+        end
+        format.js do
+          render :update do |page|
+            page.alert notice
+          end
+        end
+      end
     end
   end
   
