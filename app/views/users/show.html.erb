@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+
+<%= render 'follow_form' %>
+
+<% @user.tweets.each_with_index do |tweet, i| %>
+  <%= render '/tweets/tweet', :i => i, :tweet => tweet %>
+<% end %>

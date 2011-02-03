@@ -4,7 +4,11 @@ class TweetsController < ApplicationController
   
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.all
+    @tweets = if current_user
+       current_user.feed
+      else 
+        Tweet.all
+      end
 
     respond_to do |format|
       format.html # index.html.erb

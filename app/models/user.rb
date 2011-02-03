@@ -30,6 +30,13 @@ class User < ActiveRecord::Base
                                    :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
+  #
+  # Mensajes de los usuarios que el usuario sigue.
+  #
+  def feed
+    Tweet.from_users_followed_by(self)
+  end
+
 
   #
   # Devuelve true si el usuario sigue a followed.

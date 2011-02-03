@@ -2,8 +2,9 @@ DeustoApp::Application.routes.draw do
 
   resources :tweets
 
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:index, :new, :create, :show]
   resources :sessions, :only => [:new, :create, :destroy] 
+  resources :relationships, :only => [:create, :destroy]
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

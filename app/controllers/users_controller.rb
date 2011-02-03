@@ -1,13 +1,23 @@
 class UsersController < ApplicationController
+  # Sólo los usuarios conectados pueden ver la lista de usuarios.
+  before_filter :login_required, :only => [:index]
+
+  # GET /users/1
+  def show
+    @user = User.find(params[:id])
+  end
+
+  # GET /users
+  def index
+    @users = User.all
+  end 
 
   # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
   end
 
   # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
 
@@ -17,5 +27,4 @@ class UsersController < ApplicationController
       render :action => "new" 
     end
   end
-
 end
