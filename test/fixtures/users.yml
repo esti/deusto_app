@@ -9,3 +9,8 @@ marge:
   name: Marge Simpson
   email: marge@simpsons.com
   password: desperate
+
+lisa:
+  name: Lisa Simpson
+  email: lisa@simpsons.com
+  password: IgV07jt

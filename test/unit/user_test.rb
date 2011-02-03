@@ -1,5 +1,4 @@
 require File.dirname(File.expand_path(__FILE__)) + "/../test_helper"
-# require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
@@ -42,5 +41,49 @@ class UserTest < ActiveSupport::TestCase
     user2 = User.new(@default_attributes)
     assert !user2.valid?
     assert user2.errors[:email].include?("has already been taken")
+  end
+
+  test "should have relationships" do
+    user = users(:homer)
+
+    assert_equal [relationships(:homer_follows_marge)], user.relationships
+  end
+
+  test "should respond to following" do
+    user = users(:homer)
+
+    assert_equal [users(:marge)], user.following
+  end
+
+  test "should respond to following?" do
+    user = users(:homer)
+    
+    assert user.following?(users(:marge))
+  end
+
+  test "should follow" do
+    user = users(:homer)
+
+    assert_difference("Relationship.count", 1) do
+      user.follow!(users(:lisa))
+    end
+
+    assert user.following.include?(users(:lisa))
+  end
+
+  test "should unfollow" do
+    user = users(:homer)
+
+    assert_difference("Relationship.count", -1) do
+      user.unfollow!(users(:marge))
+    end
+
+    assert user.following.empty? 
+  end
+
+  test "should get followers" do
+    user = users(:homer)
+   
+    assert_equal [users(:marge)], user.followers 
   end
 end

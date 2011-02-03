@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+homer_follows_marge:
+  follower: homer
+  followed: marge
+
+marge_follows_homer:
+  follower: marge
+  followed: homer

@@ -21,4 +21,15 @@ namespace 'tweets' do
       sleep 2
     end
   end
+
+  desc "Feed users table with some data"
+  task :feed_users_table do
+    {"Homer" => ["homer@simpsons.org", "nuclear"], "Marge Simpson" => ["marge@simpsons.org", "desperate"], "Bart Simpson" => ["bart@simpsons.org", "mosquis"]}.each do |name, data|
+      user = User.find_or_initialize_by_name(name)
+      user.email = data.first
+      user.password = data.last
+      user.password_confirmation = data.last
+      user.save!
+    end 
+  end
 end
