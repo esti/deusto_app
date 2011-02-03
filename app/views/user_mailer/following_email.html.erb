@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hello, <%= @followee.name %></h1>
+    <p>
+      Just a little message to tell you that <%= @follower.name %>
+      is now following you.
+    </p>
+    <p>
+      You may also be interested in following him, so check out
+      his profile at <%= link_to user_url(@follower), user_url(@follower) %>
+    </p>
+    <p>See you!</p>
+  </body>
+</html>
