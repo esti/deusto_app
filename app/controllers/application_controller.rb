@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_filter :set_locale
+
   protect_from_forgery
   
   helper_method :current_user
 
   private
+
+  def set_locale
+    I18n.locale = "es"
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

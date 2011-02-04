@@ -3,10 +3,10 @@
   <p class="content"><%= tweet.content %></p>
   <div class="user_and_moment">
     <span class="user">
-      by <%= tweet.user.name %>
+      <%= t(:by) %> <%= tweet.user.name %>
     </span>
     <span class="moment">
-      <%= distance_of_time_in_words(tweet.created_at, Time.now) %> ago
+      <%= t(:ago, :distance => distance_of_time_in_words(tweet.created_at, Time.now))%>
     </span>
   </div>
 </div>
